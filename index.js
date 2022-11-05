@@ -131,11 +131,11 @@ function makeGuess() {
         let hintEl = document.createElement('span');
         hintEl.innerText = 'Invalid color';
         hintBoxEl.append(hintEl);
-    } else if (actualColor > colorName) {
+    } else if (actualColor.name > colorName) {
         let hintEl = document.createElement('span');
         hintEl.innerText = 'Your color is alphabetically lower than mine.';
         hintBoxEl.append(hintEl);
-    } else if (actualColor < colorName) {
+    } else if (actualColor.name < colorName) {
         let hintEl = document.createElement('span');
         hintEl.innerText = 'Your color is alphabetically greater than mine.';
         hintBoxEl.append(hintEl);
