@@ -5,166 +5,51 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Fake Portfolio</title>
-
+  <title>Document</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="home">
-<header>
-  <div class="container">
-    <h1><a href="#home">
-      <span class="logo">Lucas Goveia</span>
-      <span class="logo-short">Lucas G.</span>
-    </a></h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<body>
+<main>
+  <section class="state active" id="start">
+    <h1>Guess Color Game</h1>
+    <button onclick="startGame()">Start</button>
+  </section>
+  <section class="state" id="game">
+    <h3>I am thinking of one of these colors:</h3>
+    <div id="colors"></div>
 
-<main id="hero" class="light-bg">
-  <div class="container">
-    <div class="content">
-      <p id="hello-there">Hello there, I am</p>
-      <h2>Lucas<br>Goveia</h2>
-      <p id="fullstack-dev">Fullstack developer</p>
-      <p id="hero-presentation-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor arcu vel ipsum
-        rutrum, ut sollicitudin massa viverra. Ut cursus eros velit, eleifend convallis mi dapibus ac. In luctus velit
-        nisl, vitae vestibulum elit maximus ut.</p>
-      <a href="#contact" id="hero-cta" class="btn btn-primary">
-        Contact Me
-      </a>
+    <div class="form-field">
+      <label for="colorNameGuess">Color name</label>
+      <div class="form-input-wrapper">
+        <input id="colorNameGuess" type="text" placeholder="Your guess color name"/>
+      </div>
     </div>
-    <div class="illustration">
-      <img width="100%" src="assets/old-computer.svg" alt="Old computer illustration">
+
+    <div id="hint-box"></div>
+
+    <div style="width: 100%; margin-top: 1rem">
+      <button onclick="makeGuess()">Guess</button>
     </div>
-  </div>
+  </section>
+
+  <section class="state" id="defeat">
+    <h3>It wasn't this time, but you always can try again.</h3>
+
+    <div style="width: 100%; margin-top: 1rem">
+      <button onclick="tryAgain('defeat')">Try again</button>
+    </div>
+  </section>
+  <section class="state" id="win">
+    <h3>Congrats! That's the color! Can you read my mind?</h3>
+
+    <div style="width: 100%; margin-top: 1rem">
+      <button onclick="tryAgain('win')">Play again</button>
+    </div>
+  </section>
 </main>
-<section id="about-me" class="container">
-  <h3 class="section-title text-center">About me</h3>
-  <div id="me">
-    <div class="illustration">
-      <img width="100%" src="assets/me.svg" alt="Me"/>
-    </div>
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </p>
-    </div>
-  </div>
-  <div id="experience">
-    <h4>Experience</h4>
-    <ul>
-      <li class="experience-item">
-        <img class="company-logo" width="100%" src="assets/google-icon.svg" alt="Google icon">
-        <div>
-          <p><strong>Backend Developer Jr.</strong></p>
-          <p>Google - Full-time</p>
-          <div class="more-info">
-            <small>Sep 2018 - Nov 2019. 1 yrs 2 mo</small>
-            <small>São Paulo, São paulo, Brazil</small>
-          </div>
-          <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor arcu vel ipsum
-            rutrum, ut sollicitudin massa viverra. Ut cursus eros velit, eleifend convallis mi dapibus ac. In luctus
-            velit nisl, vitae vestibulum elit maximus ut. Duis eu tristique neque, sit amet tempor quam. Suspendisse
-            lacinia sollicitudin ipsum, id consequat augue varius fringilla.</p>
-        </div>
-      </li>
-      <li class="experience-item">
-        <img class="company-logo" width="100%" src="assets/google-icon.svg" alt="Google icon">
-        <div>
-          <p><strong>Backend Developer</strong></p>
-          <p>Google - Full-time</p>
-          <div class="more-info">
-            <small>Nov 2019 - Present. 2 yrs 10 mo</small>
-            <small>São Paulo, São paulo, Brazil</small>
-          </div>
-          <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor arcu vel ipsum
-            rutrum, ut sollicitudin massa viverra. Ut cursus eros velit, eleifend convallis mi dapibus ac. In luctus
-            velit nisl, vitae vestibulum elit maximus ut. Duis eu tristique neque, sit amet tempor quam. Suspendisse
-            lacinia sollicitudin ipsum, id consequat augue varius fringilla.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-<section id="blog" class="light-bg">
-  <div class="container">
-    <h3 class="section-title">My Blog</h3>
-    <h5>Last Posts</h5>
-    <div id="posts">
-      <div class="post-item">
-        <h6>Post Test 2</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor arcu vel ipsum rutrum, ut sollicitudin massa viverra. Ut cursus eros velit, eleifend convallis mi dapibus ac. In luctus velit nisl, vitae vestibulum elit maximus ut. Duis eu tristique neque, sit amet tempor quam. Suspendisse lacinia sollicitudin ipsum, id consequat augue varius fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam aliquet faucibus mattis. Mauris et mi commodo, accumsan dolor id, rutrum tellus. Pellentesque semper quam dolor, vitae egestas ligula luctus elementum. Quisque porta, enim id gravida efficitur, nisl tortor volutpat tortor, a dignissim lectus odio non nunc....</p>
-      </div>
-      <div class="post-item">
-        <h6>Post Test</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor arcu vel ipsum rutrum, ut sollicitudin massa viverra. Ut cursus eros velit, eleifend convallis mi dapibus ac. In luctus velit nisl, vitae vestibulum elit maximus ut. Duis eu tristique neque, sit amet tempor quam. Suspendisse lacinia sollicitudin ipsum, id consequat augue varius fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam aliquet faucibus mattis. Mauris et mi commodo, accumsan dolor id, rutrum tellus. Pellentesque semper quam dolor, vitae egestas ligula luctus elementum. Quisque porta, enim id gravida efficitur, nisl tortor volutpat tortor, a dignissim lectus odio non nunc....</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="contact" class="container">
-  <h3 class="section-title">Contact Me</h3>
-  <form class="form" onsubmit="console.log('Tentou enviar form')">
-    <div class="form-row">
-      <div class="form-field">
-        <label for="first-name">First name</label>
-        <div class="form-input-wrapper">
-          <input id="first-name" placeholder="Your name"/>
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="last-name">Last name</label>
-        <div class="form-input-wrapper">
-          <input id="last-name" placeholder="Your last name"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-field fill-row">
-        <label for="email">Email</label>
-        <div class="form-input-wrapper">
-          <input type="email" id="email" placeholder="youremail@example.com"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-field">
-        <label for="subject">Subject</label>
-        <div class="form-input-wrapper">
-          <input type="text" id="subject" placeholder="The email subject"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-field fill-row">
-        <label for="content">Content</label>
-        <div class="form-textarea-wrapper">
-          <textarea aria-multiline="true" rows="6" id="content" placeholder="Write here..."></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <button id="contact-submit" type="submit" class="btn btn-primary center">Send</button>
-    </div>
-  </form>
-</section>
-<footer>
-  <div class="container">
-    <p>Developed by <strong>@Lucas Goveia</strong></p>
-    <p>Thanks to <a id="lukaszadam-link" target="_blank" href="https://lukaszadam.com/">Lukasz<span>adam</span></a> for the illustrations.</p>
-  </div>
-</footer>
+<script src="index.js"></script>
 </body>
 </html>
