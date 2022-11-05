@@ -116,7 +116,6 @@ function startGame() {
 }
 
 function makeGuess() {
-    debugger;
     const inputEl = document.getElementById('colorNameGuess')
     const colorName = inputEl.value.trim();
 
